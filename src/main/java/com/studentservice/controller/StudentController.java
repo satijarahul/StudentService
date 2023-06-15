@@ -11,13 +11,13 @@ import java.util.List;
 @RequestMapping("/student")
 public class StudentController {
 
-   @GetMapping("/")
+   @GetMapping("/get")
     public List<StudentDto> getListOfStudent(){
         List<StudentDto> list = new ArrayList<>();
         list.add(new StudentDto("Rahul","Satija","@gmail","+91"));
         return  list;
     }
-    @PutMapping ("/")
+    @PutMapping ("/put")
     public  void  addStudent(@RequestBody StudentDto studentDto) {
 
     }

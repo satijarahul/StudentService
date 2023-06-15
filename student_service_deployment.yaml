@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: student-service
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: student-service
+    spec:
+      containers:
+        - name: student-service-container
+          image: satijarahul/studentservice:main
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+
