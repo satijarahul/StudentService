@@ -3,19 +3,19 @@ package com.studentservice.modal;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "student")
+@Table(name = "Student")
 public class StudentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "firstName")
+    @Column(name = "FirstName")
     private String firstName;
-    @Column(name = "lastName")
+    @Column(name = "LastName")
     private String lastName;
-    @Column(name = "email")
+    @Column(name = "Email")
     private String email;
-    @Column(name = "phoneNumber")
+    @Column(name = "PhoneNumber")
     private String phoneNumber;
 
     public int getId() {
