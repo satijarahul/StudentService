@@ -20,6 +20,7 @@ public class StudentServiceImpl implements StudentService {
         StudentEntity e = new StudentEntity();
         e.setFirstName(studentDto.getFirstName());
         e.setLastName(studentDto.getLastName());
+        if(studentDto.getEmail()!=null)
         e.setEmail(studentDto.getEmail());
         e.setPhoneNumber(studentDto.getPhoneNumber());
         studentServiceRepository.saveAndFlush(e);
