@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: student-service
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: student-service-container
-          image: satijarahul/studentserviceMVP:main
+          image: satijarahul/studentservicemvp:main
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

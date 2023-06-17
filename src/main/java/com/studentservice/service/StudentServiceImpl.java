@@ -3,6 +3,7 @@ package com.studentservice.service;
 import com.studentservice.Dto.StudentDto;
 import com.studentservice.modal.StudentEntity;
 import com.studentservice.repository.StudentServiceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService {
 
+    @Autowired
     StudentServiceRepository studentServiceRepository;
 
     @Override
