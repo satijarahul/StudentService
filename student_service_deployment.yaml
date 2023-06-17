@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: student-service-container
-          image: satijarahul/studentservice:main
+          image: satijarahul/studentservicenew:main
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
