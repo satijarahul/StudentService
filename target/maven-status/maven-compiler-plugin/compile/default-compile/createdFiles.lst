@@ -1,0 +1,7 @@
+com\studentservice\service\StudentServiceImpl.class
+com\studentservice\controller\StudentController.class
+com\studentservice\Dto\StudentDto.class
+com\studentservice\modal\StudentEntity.class
+com\studentservice\repository\StudentServiceRepository.class
+com\studentservice\service\StudentService.class
+com\studentservice\StudentserviceApplication.class
