@@ -14,7 +14,12 @@ spec:
     spec:
       containers:
         - name: student-service-container
-          image: satijarahul/studentservicemvp2:main
+          image: satijarahul/studentservicemvp4:main
+          envFrom:
+            -configMapRef:
+              name : student-service-configmap
+             secretRef:
+               name: studentservicesecret
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
