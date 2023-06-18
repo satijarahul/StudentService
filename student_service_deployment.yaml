@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: student-service
-  replicas: 1
+  replicas: 4
   template:
     metadata:
       labels:
@@ -14,12 +14,52 @@ spec:
     spec:
       containers:
         - name: student-service-container
-          image: satijarahul/studentservicemvp4:main
-          envFrom:
-            -configMapRef:
-              name : student-service-configmap
-             secretRef:
-               name: studentservicesecret
+          image: satijarahul/studentservicemvp5:main
+          env:
+            - name: spring.datasource.url
+              valueFrom:
+                configMapKeyRef:
+                  name: student-service-configmap
+                  key: spring.datasource.url
+            - name: spring.datasource.username
+              valueFrom:
+                configMapKeyRef:
+                  name: student-service-configmap
+                  key: spring.datasource.username
+            - name: spring.datasource.driverClassName
+              valueFrom:
+                configMapKeyRef:
+                  name: student-service-configmap
+                  key:  spring.datasource.driverClassName
+            - name: spring.jpa.hibernate.dialect
+              valueFrom:
+                configMapKeyRef:
+                  name: student-service-configmap
+                  key:  spring.jpa.hibernate.dialect
+            - name: spring.jpa.generate-ddl
+              valueFrom:
+                configMapKeyRef:
+                  name: student-service-configmap
+                  key: spring.jpa.generate-ddl
+            - name: spring.jpa.show-sql
+              valueFrom:
+                configMapKeyRef:
+                  name: student-service-configmap
+                  key: spring.jpa.show-sql
+            - name: spring.jpa.hibernate.ddl-auto
+              valueFrom:
+                configMapKeyRef:
+                  name: student-service-configmap
+                  key: spring.jpa.hibernate.ddl-auto
+
+
+            - name: spring.datasource.password
+              valueFrom:
+                secretKeyRef:
+                  name: studentservicesecret
+                  key: spring.datasource.password
+
+
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
