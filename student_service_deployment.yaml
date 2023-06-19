@@ -7,14 +7,20 @@ spec:
     matchLabels:
       app: student-service
   replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   template:
     metadata:
       labels:
         app: student-service
     spec:
+
       containers:
         - name: student-service-container
-          image: satijarahul/studentservicemvp5:main
+          image: satijarahul/studentservicemvp6:main
           env:
             - name: spring.datasource.url
               valueFrom:
